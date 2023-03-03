@@ -1,11 +1,12 @@
-import React from "react"
+import React from "react";
+import TodoWindow from "./TodoWindow";
 
 export default function Right() {
-    
-
-    return (
-        <>
-        <div className="min-h-full w-full border-2 border-black"></div>
-        </>
-    )
+  return (
+    <>
+      <div className="min-h-full w-full border-2 border-black">
+        <TodoWindow />
+      </div>
+    </>
+  );
 }
