@@ -1,23 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import uuid from "react-uuid";
 import { useModalWindowState } from "../store";
 import { useClickCoords } from "../store";
+import { useInboxTodosState } from "../store";
 
 export default function InboxWindow() {
-  const [inboxTodo, setInboxTodo] = useState("");
-  const [inboxTodos, setInboxTodos] = useState([]);
+  const { inboxTodo, setInboxTodo, inboxTodos, setInboxTodos, setInboxIndex } =
+    useInboxTodosState();
   const { setIsModalActive } = useModalWindowState();
   const { setXpos, setYpos } = useClickCoords();
 
   function handlePressEnter(e) {
     if (e.key === "Enter" && inboxTodo !== "") {
-      setInboxTodos([...inboxTodos, inboxTodo]);
+      setInboxTodos(inboxTodo);
       setInboxTodo("");
     }
   }
 
   function handleRightClick(e) {
     e.preventDefault();
+    setInboxIndex(inboxTodos.indexOf(e.target.textContent));
     setIsModalActive(true);
     setXpos(e.pageX);
     setYpos(e.pageY);
@@ -39,11 +41,11 @@ export default function InboxWindow() {
         {inboxTodos.map((todo) => (
           <div
             key={uuid()}
-            className="flex items-start justify-between border-2"
+            className="w-full border border-black
+            flex items-start justify-between"
             onContextMenu={handleRightClick}
           >
             <li>{todo}</li>
-            <button>···</button>
           </div>
         ))}
       </ul>
