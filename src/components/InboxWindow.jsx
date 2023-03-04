@@ -2,11 +2,11 @@ import React from "react";
 import uuid from "react-uuid";
 import { useModalWindowState } from "../store";
 import { useClickCoords } from "../store";
-import { useInboxTodosState } from "../store";
+import { useTodosState } from "../store";
 
 export default function InboxWindow() {
   const { inboxTodo, setInboxTodo, inboxTodos, setInboxTodos, setInboxIndex } =
-    useInboxTodosState();
+    useTodosState();
   const { setIsModalActive } = useModalWindowState();
   const { setXpos, setYpos } = useClickCoords();
 

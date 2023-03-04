@@ -1,22 +1,22 @@
 import React from "react";
 import { useTabsState } from "../store";
 
-export default function InboxTab() {
+export default function ProjectsTab() {
   const {
-    isInboxActive,
     setInboxActive,
     setWaitlistActive,
+    isProjectsActive,
     setProjectsActive,
     setBucketlistActive,
     setNotesActive,
     setDoneActive,
   } = useTabsState();
 
-  function handleInboxClick() {
-    if (!isInboxActive) {
-      setInboxActive(true);
+  function handleProjectsClick() {
+    if (!isProjectsActive) {
+      setProjectsActive(true);
+      setInboxActive(false);
       setWaitlistActive(false);
-      setProjectsActive(false);
       setBucketlistActive(false);
       setNotesActive(false);
       setDoneActive(false);
@@ -26,10 +26,10 @@ export default function InboxTab() {
   return (
     <>
       <div
-        className={`${isInboxActive ? "border-2 border-black" : ""}`}
-        onClick={handleInboxClick}
+        className={`${isProjectsActive ? "border-2 border-black" : ""}`}
+        onClick={handleProjectsClick}
       >
-        <h2>INBOX</h2>
+        <h2>Projects</h2>
       </div>
     </>
   );

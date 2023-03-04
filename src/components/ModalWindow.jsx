@@ -1,17 +1,19 @@
 import React from "react";
 import uuid from "react-uuid";
 import { useClickCoords } from "../store";
-import { useInboxTodosState } from "../store";
 import { useTodosState } from "../store";
 
 export default function ModalWindow() {
   const { xPos, yPos } = useClickCoords();
-  const { inboxTodos, inboxIndex } = useInboxTodosState();
-  const { setTodos } = useTodosState();
+  const { setTodos, inboxTodos, inboxIndex } = useTodosState();
 
-  function handleTodoClick(e) {
+  function handleTodoClick() {
     const movedTodo = inboxTodos.splice(inboxIndex, 1).join(", ");
     setTodos(movedTodo);
+  }
+
+  function handleDeleteClick() {
+    inboxTodos.splice(inboxIndex, 1);
   }
 
   return (
@@ -28,7 +30,9 @@ export default function ModalWindow() {
           <li key={uuid()}>move to waitlist</li>
           <li key={uuid()}>move to projects</li>
           <li key={uuid()}>move to notes</li>
-          <li key={uuid()}>move to trash bin</li>
+          <li key={uuid()} onClick={handleDeleteClick}>
+            delete
+          </li>
         </ul>
       </div>
     </>

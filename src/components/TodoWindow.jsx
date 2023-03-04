@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import uuid from "react-uuid";
 import { useTodosState } from "../store";
-import { useDeletedTodosState } from "../store";
 
 export default function TodoWindow() {
-  const { todos } = useTodosState();
-  const { setDeletedTodos } = useDeletedTodosState();
+  const { todos, setDoneTodos } = useTodosState();
   const [waitingClick, setWaitingClick] = useState(null);
   const [lastClick, setLastClick] = useState(0);
 
@@ -15,10 +13,10 @@ export default function TodoWindow() {
       setLastClick(0);
       clearTimeout(waitingClick);
       setWaitingClick(null);
-      const removedTodo = todos
+      const doneTodo = todos
         .splice(todos.indexOf(e.target.textContent), 1)
         .join(", ");
-      setDeletedTodos(removedTodo);
+      setDoneTodos(doneTodo);
     } else {
       setLastClick(e.timeStamp);
       setWaitingClick(

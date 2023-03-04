@@ -1,25 +1,21 @@
 import React from "react";
-import uuid from "react-uuid";
 import InboxTab from "./InboxTab";
-import TrashBinTab from "./TrashBinTab";
+import DoneTab from "./DoneTab";
+import WaitlistTab from "./WaitlistTab";
+import ProjectsTab from "./ProjectsTab";
+import BucketlistTab from "./BucketlistTab";
+import NotesTab from "./NotesTab";
 
 export default function MainList() {
-  const mainListTabNames = [
-    "wait list",
-    "projects",
-    "bucket list",
-    "notes",
-    "done",
-  ];
-
   return (
     <>
       <ul>
         <InboxTab />
-        {mainListTabNames.map((tabname) => (
-          <li key={uuid()}>{tabname}</li>
-        ))}
-        <TrashBinTab />
+        <WaitlistTab />
+        <ProjectsTab />
+        <BucketlistTab />
+        <NotesTab />
+        <DoneTab />
       </ul>
     </>
   );
