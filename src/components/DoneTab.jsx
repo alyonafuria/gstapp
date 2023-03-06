@@ -25,7 +25,7 @@ export default function DoneTab() {
   return (
     <>
       <div
-        className={`${isDoneActive ? "border-2 border-black" : ""}`}
+        className={`${isDoneActive ? "border-2 border-graphite" : ""}`}
         onClick={handleDoneClick}
       >
         <h2>Done</h2>

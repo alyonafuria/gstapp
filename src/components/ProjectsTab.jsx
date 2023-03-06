@@ -26,7 +26,7 @@ export default function ProjectsTab() {
   return (
     <>
       <div
-        className={`${isProjectsActive ? "border-2 border-black" : ""}`}
+        className={`${isProjectsActive ? "border-2 border-graphite" : ""}`}
         onClick={handleProjectsClick}
       >
         <h2>Projects</h2>

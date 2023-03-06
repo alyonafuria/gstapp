@@ -1,4 +1,3 @@
-import "./App.css";
 import React, { useState } from "react";
 import Left from "./components/Left";
 import Center from "./components/Center";
@@ -18,7 +17,7 @@ function App() {
     return (
       <>
         <div
-          className="grid h-screen w-screen grid-cols-3"
+          className="bg-lightgreen grid h-screen w-screen grid-cols-3"
           onClick={handleLeftClick}
         >
           <Left setLogin={setLogin} />
@@ -34,12 +33,12 @@ function App() {
         <div>
           <h2>Login with MetaMask</h2>
           <button
-            className="border-2 border-black"
+            className="border-2 border-graphite"
             onClick={() => setLogin(true)}
           >
             Login
           </button>
-          <button className="border-2 border-black">Light theme</button>
+          <button className="border-2 border-graphite">Light theme</button>
         </div>
       </>
     );

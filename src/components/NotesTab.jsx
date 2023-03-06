@@ -26,7 +26,7 @@ export default function NotesTab() {
   return (
     <>
       <div
-        className={`${isNotesActive ? "border-2 border-black" : ""}`}
+        className={`${isNotesActive ? "border-2 border-graphite" : ""}`}
         onClick={handleNotesClick}
       >
         <h2>Notes</h2>

@@ -26,7 +26,7 @@ export default function InboxTab() {
   return (
     <>
       <div
-        className={`${isInboxActive ? "border-2 border-black" : ""}`}
+        className={`${isInboxActive ? "border-2 border-graphite" : ""}`}
         onClick={handleInboxClick}
       >
         <h2>INBOX</h2>

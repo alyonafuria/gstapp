@@ -19,7 +19,7 @@ export default function Center() {
 
   return (
     <>
-      <div className="min-h-full w-full border-2 border-black overflow-y-auto">
+      <div className="min-h-full w-full border-2 border-graphite overflow-y-auto">
         {isInboxActive && <InboxWindow />}
         {isWaitlistActive && <WaitlistWindow />}
         {isProjectsActive && <ProjectsWindow />}
