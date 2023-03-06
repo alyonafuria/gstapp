@@ -7,7 +7,7 @@ export default function WaitlistWindow() {
 
   let waitList;
   if (waitlistTodos.length === 0) {
-    waitList = <p className="text-lightgray">Empty</p>;
+    waitList = <p className="text-lightgray dark:text-cinerous">Empty</p>;
   } else {
     waitList = (
       <ul>
@@ -20,7 +20,7 @@ export default function WaitlistWindow() {
 
   return (
     <>
-      <div>{waitList}</div>
+      <div className="p-2">{waitList}</div>
     </>
   );
 }

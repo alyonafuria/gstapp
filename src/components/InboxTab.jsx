@@ -28,8 +28,8 @@ export default function InboxTab() {
       <div
         className={`${
           isInboxActive
-            ? "bg-ashgray border-2 border-graphite"
-            : "hover:bg-platinum"
+            ? "box-content p-2 bg-ashgray border-b-2 border-graphite dark:bg-onyx dark:border-dogwood hover:cursor-default"
+            : "box-content p-2 hover:bg-platinum cursor-default dark:hover:bg-jet"
         }`}
         onClick={handleInboxClick}
       >

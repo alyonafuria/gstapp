@@ -7,7 +7,7 @@ export default function NotesWindow() {
 
   let notesList;
   if (notesTodos.length === 0) {
-    notesList = <p className="text-lightgray">Empty</p>;
+    notesList = <p className="text-lightgray dark:text-cinerous">Empty</p>;
   } else {
     notesList = (
       <ul>
@@ -20,7 +20,7 @@ export default function NotesWindow() {
 
   return (
     <>
-      <div>{notesList}</div>
+      <div className="p-2">{notesList}</div>
     </>
   );
 }

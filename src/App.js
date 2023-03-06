@@ -62,14 +62,14 @@ function App() {
         <div className="bg-alabaster text-graphite h-screen w-screen dark:bg-eerieblack dark:text-dogwood">
           <h2>Login with MetaMask</h2>
           <button
-            className="border-2 border-graphite hover:bg-platinum"
+            className="p-1 border-2 border-graphite dark:border-dogwood hover:bg-platinum dark:hover:bg-jet"
             onClick={() => setLogin(true)}
           >
             Login
           </button>
           {darkMode === false && (
             <button
-              className="border-2 border-graphite hover:bg-platinum"
+              className="p-1 border-2 border-graphite hover:bg-platinum"
               onClick={handleDarkMode}
             >
               Dark mode
@@ -77,7 +77,7 @@ function App() {
           )}
           {darkMode === true && (
             <button
-              className="border-2 border-graphite"
+              className="p-1 border-2 border-graphite dark:border-dogwood dark:hover:bg-jet"
               onClick={handleDarkMode}
             >
               Light mode

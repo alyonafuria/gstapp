@@ -7,7 +7,7 @@ export default function BucketlistWindow() {
 
   let bucketList;
   if (bucketlistTodos.length === 0) {
-    bucketList = <p className="text-lightgray">Empty</p>;
+    bucketList = <p className="text-lightgray dark:text-cinerous">Empty</p>;
   } else {
     bucketList = (
       <ul>
@@ -20,7 +20,7 @@ export default function BucketlistWindow() {
 
   return (
     <>
-      <div>{bucketList}</div>
+      <div className="p-2">{bucketList}</div>
     </>
   );
 }

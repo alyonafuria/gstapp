@@ -35,18 +35,18 @@ export default function Left(props) {
 
   return (
     <>
-      <div className="min-h-full w-full border-2 flex flex-col justify-between border-graphite">
+      <div className="min-h-full w-full border-2 flex flex-col justify-between border-graphite dark:border-dogwood">
         <MainList />
         <div>
           <button
-            className="border-2 border-graphite hover:bg-platinum"
+            className="p-2 border-t-2 border-r-2 border-graphite hover:bg-platinum dark:hover:bg-jet dark:border-dogwood"
             onClick={() => props.setLogin(false)}
           >
             Logout
           </button>
           {darkMode === false && (
             <button
-              className="border-2 border-graphite hover:bg-platinum"
+              className="p-2 border-t-2 border-r-2 border-graphite dark:border-dogwood hover:bg-platinum"
               onClick={handleDarkMode}
             >
               Dark mode
@@ -54,13 +54,13 @@ export default function Left(props) {
           )}
           {darkMode === true && (
             <button
-              className="border-2 border-graphite"
+              className="p-2 border-t-2 border-r-2 border-graphite dark:border-dogwood dark:hover:bg-jet"
               onClick={handleDarkMode}
             >
               Light mode
             </button>
           )}
-          <button className="border-2 border-graphite hover:bg-platinum">
+          <button className="p-2 border-t-2 border-r-2 border-graphite dark:border-dogwood hover:bg-platinum dark:hover:bg-jet">
             Settings
           </button>
         </div>
