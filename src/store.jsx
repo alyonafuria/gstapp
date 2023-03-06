@@ -1,5 +1,10 @@
 import { create } from "zustand";
 
+export const useDarkMode = create((set) => ({
+  darkMode: false,
+  setDarkMode: (value) => set({ darkMode: value }),
+}));
+
 export const useTabsState = create((set) => ({
   isInboxActive: true,
   isWaitlistActive: false,

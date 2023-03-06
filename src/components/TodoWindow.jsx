@@ -31,7 +31,11 @@ export default function TodoWindow() {
     <>
       <h2>TODO</h2>
       {todos.map((todo) => (
-        <li key={uuid()} onClick={handleDoubleClick}>
+        <li
+          key={uuid()}
+          onClick={handleDoubleClick}
+          className="hover:cursor-default hover:bg-platinum dark:hover:bg-jet pl-2"
+        >
           {todo}
         </li>
       ))}

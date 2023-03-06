@@ -7,7 +7,7 @@ export default function ProjectsWindow() {
 
   let projectsList;
   if (projectsTodos.length === 0) {
-    projectsList = <p>Empty</p>;
+    projectsList = <p className="text-lightgray dark:text-cinerous">Empty</p>;
   } else {
     projectsList = (
       <ul>
@@ -20,7 +20,7 @@ export default function ProjectsWindow() {
 
   return (
     <>
-      <div>{projectsList}</div>
+      <div className="p-2">{projectsList}</div>
     </>
   );
 }

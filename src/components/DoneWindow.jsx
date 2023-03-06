@@ -7,7 +7,7 @@ export default function TrashBin() {
 
   let doneList;
   if (doneTodos.length === 0) {
-    doneList = <p>Empty</p>;
+    doneList = <p className="text-lightgray dark:text-cinerous">Empty</p>;
   } else {
     doneList = (
       <ul>
@@ -20,7 +20,7 @@ export default function TrashBin() {
 
   return (
     <>
-      <div>{doneList}</div>
+      <div className="p-2">{doneList}</div>
     </>
   );
 }
