@@ -7,7 +7,7 @@ export default function ProjectsWindow() {
 
   let projectsList;
   if (projectsTodos.length === 0) {
-    projectsList = <p>Empty</p>;
+    projectsList = <p className="text-lightgray">Empty</p>;
   } else {
     projectsList = (
       <ul>

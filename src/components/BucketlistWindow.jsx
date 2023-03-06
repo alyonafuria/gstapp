@@ -7,7 +7,7 @@ export default function BucketlistWindow() {
 
   let bucketList;
   if (bucketlistTodos.length === 0) {
-    bucketList = <p>Empty</p>;
+    bucketList = <p className="text-lightgray">Empty</p>;
   } else {
     bucketList = (
       <ul>

@@ -7,7 +7,7 @@ export default function TrashBin() {
 
   let doneList;
   if (doneTodos.length === 0) {
-    doneList = <p>Empty</p>;
+    doneList = <p className="text-lightgray">Empty</p>;
   } else {
     doneList = (
       <ul>

@@ -26,7 +26,11 @@ export default function NotesTab() {
   return (
     <>
       <div
-        className={`${isNotesActive ? "border-2 border-graphite" : ""}`}
+        className={`${
+          isNotesActive
+            ? "bg-ashgray border-2 border-graphite"
+            : "hover:bg-platinum"
+        }`}
         onClick={handleNotesClick}
       >
         <h2>Notes</h2>

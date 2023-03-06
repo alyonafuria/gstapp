@@ -25,7 +25,11 @@ export default function DoneTab() {
   return (
     <>
       <div
-        className={`${isDoneActive ? "border-2 border-graphite" : ""}`}
+        className={`${
+          isDoneActive
+            ? "bg-ashgray border-2 border-graphite"
+            : "hover:bg-platinum"
+        }`}
         onClick={handleDoneClick}
       >
         <h2>Done</h2>

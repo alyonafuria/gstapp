@@ -28,7 +28,7 @@ export default function InboxWindow() {
   return (
     <>
       <input
-        className="container whitespace-normal bg-darkgreen"
+        className="container whitespace-normal bg-alabaster hover:bg-platinum focus:bg-ashgray outline-graphite"
         type="text"
         name="todo"
         value={inboxTodo}
@@ -41,7 +41,7 @@ export default function InboxWindow() {
         {inboxTodos.map((todo) => (
           <div
             key={uuid()}
-            className="w-full border border-graphite
+            className="w-full border-b-2 border-graphite
             flex items-start justify-between"
             onContextMenu={handleRightClick}
           >

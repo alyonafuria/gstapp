@@ -7,7 +7,7 @@ export default function WaitlistWindow() {
 
   let waitList;
   if (waitlistTodos.length === 0) {
-    waitList = <p>Empty</p>;
+    waitList = <p className="text-lightgray">Empty</p>;
   } else {
     waitList = (
       <ul>

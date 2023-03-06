@@ -3,21 +3,50 @@ import Left from "./components/Left";
 import Center from "./components/Center";
 import Right from "./components/Right";
 import { useModalWindowState } from "./store";
+import { useDarkMode } from "./store";
 import ModalWindow from "./components/ModalWindow";
 
 function App() {
   const [login, setLogin] = useState(false);
+  const { darkMode, setDarkMode } = useDarkMode();
   const { isModalActive, setIsModalActive } = useModalWindowState();
 
-  function handleLeftClick(e) {
+  function handleLeftClick() {
     setIsModalActive(false);
+  }
+
+  function handleDarkMode() {
+    // if set via local storage previously
+    if (localStorage.getItem("color-theme")) {
+      if (localStorage.getItem("color-theme") === "light") {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("color-theme", "dark");
+        setDarkMode(true);
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("color-theme", "light");
+        setDarkMode(false);
+      }
+
+      // if NOT set via local storage previously
+    } else {
+      if (document.documentElement.classList.contains("dark")) {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("color-theme", "light");
+        setDarkMode(false);
+      } else {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("color-theme", "dark");
+        setDarkMode(true);
+      }
+    }
   }
 
   if (login) {
     return (
       <>
         <div
-          className="bg-lightgreen grid h-screen w-screen grid-cols-3"
+          className="bg-alabaster grid h-screen w-screen grid-cols-3 text-graphite dark:bg-eerieblack dark:text-dogwood"
           onClick={handleLeftClick}
         >
           <Left setLogin={setLogin} />
@@ -30,15 +59,30 @@ function App() {
   } else {
     return (
       <>
-        <div>
+        <div className="bg-alabaster text-graphite h-screen w-screen dark:bg-eerieblack dark:text-dogwood">
           <h2>Login with MetaMask</h2>
           <button
-            className="border-2 border-graphite"
+            className="border-2 border-graphite hover:bg-platinum"
             onClick={() => setLogin(true)}
           >
             Login
           </button>
-          <button className="border-2 border-graphite">Light theme</button>
+          {darkMode === false && (
+            <button
+              className="border-2 border-graphite hover:bg-platinum"
+              onClick={handleDarkMode}
+            >
+              Dark mode
+            </button>
+          )}
+          {darkMode === true && (
+            <button
+              className="border-2 border-graphite"
+              onClick={handleDarkMode}
+            >
+              Light mode
+            </button>
+          )}
         </div>
       </>
     );

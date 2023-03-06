@@ -25,7 +25,11 @@ export default function BucketlistTab() {
   return (
     <>
       <div
-        className={`${isBucketlistActive ? "border-2 border-graphite" : ""}`}
+        className={`${
+          isBucketlistActive
+            ? "bg-ashgray border-2 border-graphite"
+            : "hover:bg-platinum"
+        }`}
         onClick={handleBucketlistClick}
       >
         <h2>Bucket List</h2>

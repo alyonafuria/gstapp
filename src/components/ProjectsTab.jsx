@@ -26,7 +26,11 @@ export default function ProjectsTab() {
   return (
     <>
       <div
-        className={`${isProjectsActive ? "border-2 border-graphite" : ""}`}
+        className={`${
+          isProjectsActive
+            ? "bg-ashgray border-2 border-graphite"
+            : "hover:bg-platinum"
+        }`}
         onClick={handleProjectsClick}
       >
         <h2>Projects</h2>

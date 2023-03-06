@@ -25,7 +25,11 @@ export default function WaitlistTab() {
   return (
     <>
       <div
-        className={`${isWaitlistActive ? "border-2 border-graphite" : ""}`}
+        className={`${
+          isWaitlistActive
+            ? "bg-ashgray border-2 border-graphite"
+            : "hover:bg-platinum"
+        }`}
         onClick={handleWaitlistClick}
       >
         <h2>Waitlist</h2>
