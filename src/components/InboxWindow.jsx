@@ -4,9 +4,16 @@ import { useModalWindowState } from "../store";
 import { useClickCoords } from "../store";
 
 export default function InboxWindow() {
+<<<<<<< Updated upstream:src/components/InboxWindow.jsx
   const [inboxTodo, setInboxTodo] = useState("");
   const [inboxTodos, setInboxTodos] = useState([]);
   const { setIsModalActive } = useModalWindowState();
+=======
+  const { inboxTodo, setInboxTodo, inboxTodos, setInboxTodos, setInboxIndex } =
+    useTodosState();
+  const { setIsModalActive, modalHeight, setModalHeight } =
+    useModalWindowState();
+>>>>>>> Stashed changes:src/components/viewers/InboxWindow.jsx
   const { setXpos, setYpos } = useClickCoords();
 
   function handlePressEnter(e) {
@@ -19,8 +26,13 @@ export default function InboxWindow() {
   function handleRightClick(e) {
     e.preventDefault();
     setIsModalActive(true);
-    setXpos(e.pageX);
-    setYpos(e.pageY);
+    if (e.pageY > window.innerHeight - modalHeight) {
+      setXpos(e.pageX);
+      setYpos(e.pageY - modalHeight);
+    } else {
+      setXpos(e.pageX);
+      setYpos(e.pageY);
+    }
   }
 
   return (
