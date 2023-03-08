@@ -1,44 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
 import uuid from "react-uuid";
-import { useModalWindowState } from "../store";
-import { useClickCoords } from "../store";
+import { useModalWindowState } from "../../store";
+import { useClickCoords } from "../../store";
+import { useTodosState } from "../../store";
 
 export default function InboxWindow() {
-<<<<<<< Updated upstream:src/components/InboxWindow.jsx
-  const [inboxTodo, setInboxTodo] = useState("");
-  const [inboxTodos, setInboxTodos] = useState([]);
-  const { setIsModalActive } = useModalWindowState();
-=======
   const { inboxTodo, setInboxTodo, inboxTodos, setInboxTodos, setInboxIndex } =
     useTodosState();
-  const { setIsModalActive, modalHeight, setModalHeight } =
-    useModalWindowState();
->>>>>>> Stashed changes:src/components/viewers/InboxWindow.jsx
+  const { setIsModalActive } = useModalWindowState();
   const { setXpos, setYpos } = useClickCoords();
 
   function handlePressEnter(e) {
     if (e.key === "Enter" && inboxTodo !== "") {
-      setInboxTodos([...inboxTodos, inboxTodo]);
+      setInboxTodos(inboxTodo);
       setInboxTodo("");
     }
   }
 
   function handleRightClick(e) {
     e.preventDefault();
+    setInboxIndex(inboxTodos.indexOf(e.target.textContent));
     setIsModalActive(true);
-    if (e.pageY > window.innerHeight - modalHeight) {
-      setXpos(e.pageX);
-      setYpos(e.pageY - modalHeight);
-    } else {
-      setXpos(e.pageX);
-      setYpos(e.pageY);
-    }
+    setXpos(e.pageX);
+    setYpos(e.pageY);
   }
 
   return (
     <>
       <input
-        className="whitespace-normal"
+        className="input sticky top-0"
         type="text"
         name="todo"
         value={inboxTodo}
@@ -51,11 +41,10 @@ export default function InboxWindow() {
         {inboxTodos.map((todo) => (
           <div
             key={uuid()}
-            className="flex items-start justify-between border-2"
+            className="p-2 w-full border-b-2 border-graphite dark:border-dogwood hover:bg-platinum cursor-default dark:hover:bg-jet"
             onContextMenu={handleRightClick}
           >
             <li>{todo}</li>
-            <button>···</button>
           </div>
         ))}
       </ul>

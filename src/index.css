@@ -1,17 +1,3 @@
-<<<<<<< Updated upstream
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-=======
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -37,7 +23,7 @@ code {
     @apply absolute border-2 border-graphite dark:border-dogwood z-10 bg-alabaster dark:bg-eerieblack;
   }
   .modal-item {
-    @apply px-2 py-1 first:pt-2 last:pb-2 border-y-2 first:border-t-0 last:border-b-0 border-transparent hover:bg-platinum hover:border-y-2 hover:border-x-0 hover:border-graphite cursor-default focus:bg-onyx dark:hover:bg-jet dark:hover:border-dogwood dark:focus:bg-cinerous first:hover:border-t-0 last:hover:border-b-0;
+    @apply hover:bg-platinum hover:border-b-2 hover:border-t-2 hover:border-graphite cursor-default focus:bg-onyx dark:hover:bg-jet dark:hover:border-dogwood dark:focus:bg-cinerous first:hover:border-t-0 last:hover:border-b-0;
   }
   .text-empty {
     @apply text-lightgray dark:text-cinerous;
@@ -46,5 +32,4 @@ code {
     @apply container p-2 whitespace-normal bg-platinum border-b-2 border-b-graphite placeholder-lightgray placeholder:italic
         dark:bg-jet dark:border-b-dogwood focus:bg-ashgray dark:focus:bg-onyx outline-graphite dark:outline-dogwood dark:placeholder-cinerous;
   }
->>>>>>> Stashed changes
 }

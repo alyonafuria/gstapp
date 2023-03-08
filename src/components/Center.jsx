@@ -1,14 +1,31 @@
 import React from "react";
-import { useInboxTab } from "../store";
-import InboxWindow from "./InboxWindow";
+import { useTabsState } from "../store";
+import InboxWindow from "./viewers/InboxWindow";
+import WaitlistWindow from "./viewers/WaitlistWindow";
+import ProjectsWindow from "./viewers/ProjectsWindow";
+import BucketlistWindow from "./viewers/BucketlistWindow";
+import NotesWindow from "./viewers/NotesWindow";
+import DoneWindow from "./viewers/DoneWindow";
 
 export default function Center() {
-  const { isInboxActive } = useInboxTab();
+  const {
+    isInboxActive,
+    isWaitlistActive,
+    isProjectsActive,
+    isBucketlistActive,
+    isNotesActive,
+    isDoneActive,
+  } = useTabsState();
 
   return (
     <>
-      <div className="min-h-full w-full border-2 border-black overflow-y-auto">
+      <div className="min-h-full w-full border-t-2 border-b-2 border-graphite dark:border-dogwood overflow-y-auto">
         {isInboxActive && <InboxWindow />}
+        {isWaitlistActive && <WaitlistWindow />}
+        {isProjectsActive && <ProjectsWindow />}
+        {isBucketlistActive && <BucketlistWindow />}
+        {isNotesActive && <NotesWindow />}
+        {isDoneActive && <DoneWindow />}
       </div>
     </>
   );
