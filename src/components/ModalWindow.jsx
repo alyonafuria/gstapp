@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import uuid from "react-uuid";
 import { useClickCoords } from "../store";
 import { useTodosState } from "../store";
+import { useModalWindowState } from "../store";
 
 export default function ModalWindow() {
   const { xPos, yPos } = useClickCoords();
   const { setTodos, inboxTodos, inboxIndex } = useTodosState();
+  const { setModalHeight } = useModalWindowState();
+
+  const heightRef = useRef(null);
+
+  useEffect(() => {
+    const divHeight = heightRef.current.clientHeight;
+    setModalHeight(divHeight);
+  }, [setModalHeight]);
 
   function handleTodoClick() {
     const movedTodo = inboxTodos.splice(inboxIndex, 1).join(", ");
@@ -19,6 +28,7 @@ export default function ModalWindow() {
   return (
     <>
       <div
+        ref={heightRef}
         className={`modal-window`}
         style={{ top: `${yPos}px`, left: `${xPos}px` }}
       >
