@@ -17,7 +17,7 @@
       dark:bg-onyx dark:border-dogwood hover:cursor-default first:border-t-0;
   }
   .tab-inactive {
-    @apply box-content p-2 hover:bg-platinum cursor-default dark:hover:bg-jet;
+    @apply box-content p-2 border-y-2 first:border-t-0 border-transparent hover:bg-platinum cursor-default dark:hover:bg-jet;
   }
   .modal-window {
     @apply absolute border-2 border-graphite dark:border-dogwood z-10 bg-alabaster dark:bg-eerieblack;
