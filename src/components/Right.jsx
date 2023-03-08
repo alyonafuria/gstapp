@@ -1,5 +1,5 @@
 import React from "react";
-import TodoWindow from "./TodoWindow";
+import TodoWindow from "./viewers/TodoWindow";
 
 export default function Right() {
   return (

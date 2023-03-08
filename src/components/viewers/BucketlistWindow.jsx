@@ -1,5 +1,5 @@
 import React from "react";
-import { useTodosState } from "../store";
+import { useTodosState } from "../../store";
 import uuid from "react-uuid";
 
 export default function BucketlistWindow() {
@@ -7,7 +7,7 @@ export default function BucketlistWindow() {
 
   let bucketList;
   if (bucketlistTodos.length === 0) {
-    bucketList = <p className="text-lightgray dark:text-cinerous">Empty</p>;
+    bucketList = <p className="text-empty">Empty</p>;
   } else {
     bucketList = (
       <ul>

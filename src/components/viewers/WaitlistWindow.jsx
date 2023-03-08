@@ -1,5 +1,5 @@
 import React from "react";
-import { useTodosState } from "../store";
+import { useTodosState } from "../../store";
 import uuid from "react-uuid";
 
 export default function WaitlistWindow() {
@@ -7,7 +7,7 @@ export default function WaitlistWindow() {
 
   let waitList;
   if (waitlistTodos.length === 0) {
-    waitList = <p className="text-lightgray dark:text-cinerous">Empty</p>;
+    waitList = <p className="text-empty">Empty</p>;
   } else {
     waitList = (
       <ul>
