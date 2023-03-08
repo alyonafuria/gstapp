@@ -23,7 +23,7 @@
     @apply absolute border-2 border-graphite dark:border-dogwood z-10 bg-alabaster dark:bg-eerieblack;
   }
   .modal-item {
-    @apply hover:bg-platinum hover:border-b-2 hover:border-t-2 hover:border-graphite cursor-default focus:bg-onyx dark:hover:bg-jet dark:hover:border-dogwood dark:focus:bg-cinerous first:hover:border-t-0 last:hover:border-b-0;
+    @apply px-2 py-1 first:pt-2 last:pb-2 border-y-2 first:border-t-0 last:border-b-0 border-transparent hover:bg-platinum hover:border-y-2 hover:border-x-0 hover:border-graphite cursor-default focus:bg-onyx dark:hover:bg-jet dark:hover:border-dogwood dark:focus:bg-cinerous first:hover:border-t-0 last:hover:border-b-0;
   }
   .text-empty {
     @apply text-lightgray dark:text-cinerous;
