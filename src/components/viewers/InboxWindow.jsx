@@ -1,8 +1,8 @@
 import React from "react";
 import uuid from "react-uuid";
-import { useModalWindowState } from "../store";
-import { useClickCoords } from "../store";
-import { useTodosState } from "../store";
+import { useModalWindowState } from "../../store";
+import { useClickCoords } from "../../store";
+import { useTodosState } from "../../store";
 
 export default function InboxWindow() {
   const { inboxTodo, setInboxTodo, inboxTodos, setInboxTodos, setInboxIndex } =
@@ -28,8 +28,7 @@ export default function InboxWindow() {
   return (
     <>
       <input
-        className="container p-2 sticky top-0 whitespace-normal bg-platinum border-b-2 border-b-graphite placeholder-lightgray
-        dark:bg-jet dark:border-b-dogwood focus:bg-ashgray dark:focus:bg-onyx outline-graphite dark:outline-dogwood dark:placeholder-cinerous"
+        className="input sticky top-0"
         type="text"
         name="todo"
         value={inboxTodo}

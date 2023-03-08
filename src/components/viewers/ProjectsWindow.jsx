@@ -1,5 +1,5 @@
 import React from "react";
-import { useTodosState } from "../store";
+import { useTodosState } from "../../store";
 import uuid from "react-uuid";
 
 export default function ProjectsWindow() {
@@ -7,7 +7,7 @@ export default function ProjectsWindow() {
 
   let projectsList;
   if (projectsTodos.length === 0) {
-    projectsList = <p className="text-lightgray dark:text-cinerous">Empty</p>;
+    projectsList = <p className="text-empty">Empty</p>;
   } else {
     projectsList = (
       <ul>

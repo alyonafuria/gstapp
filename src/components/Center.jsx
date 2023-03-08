@@ -1,11 +1,11 @@
 import React from "react";
 import { useTabsState } from "../store";
-import InboxWindow from "./InboxWindow";
-import WaitlistWindow from "./WaitlistWindow";
-import ProjectsWindow from "./ProjectsWindow";
-import BucketlistWindow from "./BucketlistWindow";
-import NotesWindow from "./NotesWindow";
-import DoneWindow from "./DoneWindow";
+import InboxWindow from "./viewers/InboxWindow";
+import WaitlistWindow from "./viewers/WaitlistWindow";
+import ProjectsWindow from "./viewers/ProjectsWindow";
+import BucketlistWindow from "./viewers/BucketlistWindow";
+import NotesWindow from "./viewers/NotesWindow";
+import DoneWindow from "./viewers/DoneWindow";
 
 export default function Center() {
   const {

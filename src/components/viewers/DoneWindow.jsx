@@ -1,5 +1,5 @@
 import React from "react";
-import { useTodosState } from "../store";
+import { useTodosState } from "../../store";
 import uuid from "react-uuid";
 
 export default function TrashBin() {
@@ -7,7 +7,7 @@ export default function TrashBin() {
 
   let doneList;
   if (doneTodos.length === 0) {
-    doneList = <p className="text-lightgray dark:text-cinerous">Empty</p>;
+    doneList = <p className="text-empty">Empty</p>;
   } else {
     doneList = (
       <ul>

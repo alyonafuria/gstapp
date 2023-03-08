@@ -1,5 +1,5 @@
 import React from "react";
-import { useTodosState } from "../store";
+import { useTodosState } from "../../store";
 import uuid from "react-uuid";
 
 export default function NotesWindow() {
@@ -7,7 +7,7 @@ export default function NotesWindow() {
 
   let notesList;
   if (notesTodos.length === 0) {
-    notesList = <p className="text-lightgray dark:text-cinerous">Empty</p>;
+    notesList = <p className="text-empty">Empty</p>;
   } else {
     notesList = (
       <ul>

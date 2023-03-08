@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import uuid from "react-uuid";
-import { useTodosState } from "../store";
+import { useTodosState } from "../../store";
 
 export default function TodoWindow() {
   const { todos, setDoneTodos } = useTodosState();
