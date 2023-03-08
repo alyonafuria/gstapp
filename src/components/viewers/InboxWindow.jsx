@@ -7,7 +7,7 @@ import { useTodosState } from "../../store";
 export default function InboxWindow() {
   const { inboxTodo, setInboxTodo, inboxTodos, setInboxTodos, setInboxIndex } =
     useTodosState();
-  const { setIsModalActive, modalHeight } = useModalWindowState();
+  const { setIsModalActive } = useModalWindowState();
   const { setXpos, setYpos } = useClickCoords();
 
   function handlePressEnter(e) {
@@ -21,13 +21,8 @@ export default function InboxWindow() {
     e.preventDefault();
     setInboxIndex(inboxTodos.indexOf(e.target.textContent));
     setIsModalActive(true);
-    if (e.pageY > window.innerHeight - modalHeight) {
-      setXpos(e.pageX);
-      setYpos(e.pageY - modalHeight);
-    } else {
-      setXpos(e.pageX);
-      setYpos(e.pageY);
-    }
+    setXpos(e.pageX);
+    setYpos(e.pageY);
   }
 
   return (
