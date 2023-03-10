@@ -22,7 +22,7 @@ export const useTabsState = create((set) => ({
 
 export const useTodosState = create((set) => ({
   todo: "",
-  setTodo: (value) => set({ inboxTodo: value }),
+  setTodo: (value) => set({ todo: value }),
   todos: [],
   setTodos: (value) => set((state) => ({ todos: [...state.todos, value] })),
   inboxTodo: "",

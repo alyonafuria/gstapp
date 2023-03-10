@@ -4,7 +4,7 @@ import uuid from "react-uuid";
 
 export default function ProjectsWindow() {
   const { projectsTodos } = useTodosState();
-  const [projects, setProjects] = useState(["Project"]);
+  const [projects, setProjects] = useState([]);
 
   let projectsList;
   if (projectsTodos.length === 0) {
@@ -13,14 +13,20 @@ export default function ProjectsWindow() {
     projectsList = (
       <ul>
         {projectsTodos.map((todo) => (
-          <li key={uuid()}>{todo}</li>
+          <li key={uuid()} className="selection-none hover:cursor-default">
+            {todo}
+          </li>
         ))}
       </ul>
     );
   }
 
   function handleNewProject() {
-    setProjects([...projects, "Project"]);
+    setProjects([...projects, { id: uuid(), name: "Project" }]);
+  }
+
+  function handleDeleteProject(id) {
+    setProjects(projects.filter((project) => project.id !== id));
   }
 
   return (
@@ -29,8 +35,17 @@ export default function ProjectsWindow() {
       <button onClick={handleNewProject} className="newProjectButton">
         New Project
       </button>
-      {projects.map(() => (
-        <div key={uuid()} className="newProject"></div>
+      {projects.map((project) => (
+        <div key={project.id} className="newProject">
+          <div className="border-b border-graphite dark:border-dogwood flex justify-between">
+            <h2>{project.name}</h2>
+            <button onClick={() => handleDeleteProject(project.id)}>X</button>
+          </div>
+
+          <div>
+            <ul>{}</ul>
+          </div>
+        </div>
       ))}
     </>
   );
