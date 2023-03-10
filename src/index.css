@@ -39,6 +39,6 @@
     @apply m-auto mb-6 block w-10/12 border-2 border-graphite dark:border-dogwood;
   }
   .newProject {
-    @apply m-auto w-10/12 h-16 mb-3 border-2 border-graphite dark:border-dogwood;
+    @apply m-auto w-10/12 h-16 mb-3 border-2 p-2 border-graphite dark:border-dogwood;
   }
 }
