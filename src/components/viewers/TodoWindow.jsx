@@ -13,10 +13,12 @@ export default function TodoWindow() {
       setLastClick(0);
       clearTimeout(waitingClick);
       setWaitingClick(null);
-      const doneTodo = todos
-        .splice(todos.indexOf(e.target.textContent), 1)
-        .join(", ");
-      setDoneTodos(doneTodo);
+      setTimeout(() => {
+        const doneTodo = todos
+          .splice(todos.indexOf(e.target.textContent), 1)
+          .join(", ");
+        setDoneTodos(doneTodo);
+      }, 100);
     } else {
       setLastClick(e.timeStamp);
       setWaitingClick(
@@ -34,7 +36,7 @@ export default function TodoWindow() {
         <li
           key={uuid()}
           onClick={handleDoubleClick}
-          className="hover:cursor-default hover:bg-platinum dark:hover:bg-jet pl-2"
+          className="select-none hover:cursor-default hover:bg-platinum dark:hover:bg-jet pl-2"
         >
           {todo}
         </li>

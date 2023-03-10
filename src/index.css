@@ -13,11 +13,11 @@
     @apply p-1 border-2 border-graphite dark:border-dogwood dark:hover:bg-jet;
   }
   .tab-active {
-    @apply box-content p-2 bg-ashgray border-t-2 border-b-2 border-graphite
+    @apply box-content p-2 bg-ashgray border-y-2 border-graphite
       dark:bg-onyx dark:border-dogwood hover:cursor-default first:border-t-0;
   }
   .tab-inactive {
-    @apply box-content p-2 border-y-2 first:border-t-0 border-transparent hover:bg-platinum cursor-default dark:hover:bg-jet;
+    @apply box-content p-2 border-y-2 border-transparent first:border-t-0 hover:bg-platinum cursor-default dark:hover:bg-jet;
   }
   .modal-window {
     @apply absolute border-2 border-graphite dark:border-dogwood z-10 bg-alabaster dark:bg-eerieblack;
@@ -31,5 +31,14 @@
   .input {
     @apply container p-2 whitespace-normal bg-platinum border-b-2 border-b-graphite placeholder-lightgray placeholder:italic
         dark:bg-jet dark:border-b-dogwood focus:bg-ashgray dark:focus:bg-onyx outline-graphite dark:outline-dogwood dark:placeholder-cinerous;
+  }
+  .clickedTodo {
+    @apply text-lightgray dark:text-cinerous line-through ease-in-out duration-300 select-none hover:cursor-default;
+  }
+  .newProjectButton {
+    @apply m-auto mb-6 block w-10/12 border-2 border-graphite dark:border-dogwood;
+  }
+  .newProject {
+    @apply m-auto w-10/12 h-16 mb-3 border-2 border-graphite dark:border-dogwood;
   }
 }
