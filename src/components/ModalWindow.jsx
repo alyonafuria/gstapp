@@ -6,7 +6,15 @@ import { useModalWindowState } from "../store";
 
 export default function ModalWindow() {
   const { xPos, yPos } = useClickCoords();
-  const { setTodos, inboxTodos, inboxIndex } = useTodosState();
+  const {
+    setTodos,
+    setWaitlistTodos,
+    setProjectsTodos,
+    setBucketlistTodos,
+    setNotesTodos,
+    inboxTodos,
+    inboxIndex,
+  } = useTodosState();
   const { setModalHeight } = useModalWindowState();
 
   const heightRef = useRef(null);
@@ -19,6 +27,30 @@ export default function ModalWindow() {
   function handleTodoClick() {
     const movedTodo = inboxTodos.splice(inboxIndex, 1).join(", ");
     setTodos(movedTodo);
+  }
+
+  function handleCalendarClick() {
+    window.open("https://calendar.google.com/");
+  }
+
+  function handleWaitlistClick() {
+    const movedTodo = inboxTodos.splice(inboxIndex, 1).join(", ");
+    setWaitlistTodos(movedTodo);
+  }
+
+  function handleProjectsClick() {
+    const movedTodo = inboxTodos.splice(inboxIndex, 1).join(", ");
+    setProjectsTodos(movedTodo);
+  }
+
+  function handleBucketlistClick() {
+    const movedTodo = inboxTodos.splice(inboxIndex, 1).join(", ");
+    setBucketlistTodos(movedTodo);
+  }
+
+  function handleNotesClick() {
+    const movedTodo = inboxTodos.splice(inboxIndex, 1).join(", ");
+    setNotesTodos(movedTodo);
   }
 
   function handleDeleteClick() {
@@ -34,22 +66,29 @@ export default function ModalWindow() {
       >
         <ul>
           <li key={uuid()} onClick={handleTodoClick} className="modal-item">
-            move to todo
+            move to To Do
           </li>
-          <li key={uuid()} className="modal-item">
-            add to calendar
+          <li key={uuid()} onClick={handleCalendarClick} className="modal-item">
+            add to Calendar
           </li>
-          <li key={uuid()} className="modal-item">
-            move to waitlist
+          <li key={uuid()} onClick={handleWaitlistClick} className="modal-item">
+            move to Waitlist
           </li>
-          <li key={uuid()} className="modal-item">
-            move to projects
+          <li key={uuid()} onClick={handleProjectsClick} className="modal-item">
+            move to Projects
           </li>
-          <li key={uuid()} className="modal-item">
-            move to notes
+          <li
+            key={uuid()}
+            onClick={handleBucketlistClick}
+            className="modal-item"
+          >
+            move to Bucket List
+          </li>
+          <li key={uuid()} onClick={handleNotesClick} className="modal-item">
+            move to Notes
           </li>
           <li key={uuid()} className="modal-item" onClick={handleDeleteClick}>
-            delete
+            Delete
           </li>
         </ul>
       </div>
