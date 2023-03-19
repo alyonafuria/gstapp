@@ -51,7 +51,7 @@ export const useTodosState = create((set) => ({
 
 export const useModalWindowState = create((set) => ({
   isModalActive: false,
-  modalHeight: 0,
+  modalHeight: 256,
   setIsModalActive: (value) => set({ isModalActive: value }),
   setModalHeight: (value) => set({ modalHeight: value }),
 }));
