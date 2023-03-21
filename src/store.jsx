@@ -49,6 +49,14 @@ export const useTodosState = create((set) => ({
     set((state) => ({ doneTodos: [...state.doneTodos, value] })),
 }));
 
+export const useProjectsState = create((set) => ({
+  projects: [],
+  setProjects: (value) =>
+    set((state) => ({ projects: [...state.projects, value] })),
+  filterProjects: (value) => set(() => ({ projects: value })),
+  updateProjects: () => set((state) => ({ projects: [...state.projects] })),
+}));
+
 export const useModalWindowState = create((set) => ({
   isModalActive: false,
   modalHeight: 0,
