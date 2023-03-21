@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useTodosState } from "../../store";
+import { useProjectsState } from "../../store";
 import uuid from "react-uuid";
 
-export default function ProjectsWindow() {
+export default function ProjectsWindow(props) {
   const { projectsTodos } = useTodosState();
-  const [projects, setProjects] = useState([]);
+  const { projects, setProjects, filterProjects, updateProjects } =
+    useProjectsState();
+  const [isEdited, setIsEdited] = useState(false);
+  const [projectID, setProjectID] = useState();
+  const [projectName, setProjectName] = useState("");
+  const inputRef = useRef();
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isEdited]);
 
   let projectsList;
   if (projectsTodos.length === 0) {
@@ -22,11 +34,25 @@ export default function ProjectsWindow() {
   }
 
   function handleNewProject() {
-    setProjects([...projects, { id: uuid(), name: "Project" }]);
+    setProjects({ id: uuid(), name: "Project", projectTodos: [] });
   }
 
   function handleDeleteProject(id) {
-    setProjects(projects.filter((project) => project.id !== id));
+    filterProjects(projects.filter((project) => project.id !== id));
+  }
+
+  function handleDoubleClick(id) {
+    setProjectID(id);
+    setIsEdited(true);
+  }
+
+  function handlePressEnter(e, name, id) {
+    if (e.key === "Enter" && projectName !== "") {
+      projects.find((x) => x.id === id).name = projectName;
+      updateProjects();
+      setIsEdited(false);
+      setProjectName("");
+    }
   }
 
   return (
@@ -38,10 +64,22 @@ export default function ProjectsWindow() {
       {projects.map((project) => (
         <div key={project.id} className="newProject">
           <div className="border-b border-graphite dark:border-dogwood flex justify-between">
-            <h2>{project.name}</h2>
+            {project.id === projectID && isEdited ? (
+              <input
+                type="text"
+                ref={inputRef}
+                value={projectName}
+                onChange={(e) => setProjectName(e.target.value)}
+                onKeyDown={(e) => handlePressEnter(e, project.name, project.id)}
+              />
+            ) : (
+              <h2 onDoubleClick={() => handleDoubleClick(project.id)}>
+                {project.name}
+              </h2>
+            )}
+
             <button onClick={() => handleDeleteProject(project.id)}>X</button>
           </div>
-
           <div>
             <ul>{}</ul>
           </div>
