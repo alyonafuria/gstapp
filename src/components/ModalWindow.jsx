@@ -6,9 +6,6 @@ import { useModalWindowState } from "../store";
 
 export default function ModalWindow() {
   const { xPos, yPos } = useClickCoords();
-<<<<<<< Updated upstream
-  const { setTodos, inboxTodos, inboxIndex } = useTodosState();
-=======
   const {
     setTodos,
     setWaitlistTodos,
@@ -21,7 +18,6 @@ export default function ModalWindow() {
     setInboxId,
     deleteInboxTodo,
   } = useTodosState();
->>>>>>> Stashed changes
   const { setModalHeight } = useModalWindowState();
 
   const heightRef = useRef(null);
@@ -37,8 +33,6 @@ export default function ModalWindow() {
     deleteInboxTodo(inboxId);
   }
 
-<<<<<<< Updated upstream
-=======
   function handleCalendarClick() {
     window.open("https://calendar.google.com/");
     deleteInboxTodo(inboxId);
@@ -69,7 +63,6 @@ export default function ModalWindow() {
     deleteInboxTodo(inboxId);
   }
 
->>>>>>> Stashed changes
   function handleDeleteClick() {
     deleteInboxTodo(inboxId);
   }

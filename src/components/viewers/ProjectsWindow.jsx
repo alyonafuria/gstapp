@@ -5,19 +5,6 @@ import uuid from "react-uuid";
 export default function ProjectsWindow() {
   const { projectsTodos } = useTodosState();
 
-<<<<<<< Updated upstream
-  let projectsList;
-  if (projectsTodos.length === 0) {
-    projectsList = <p className="text-empty">Empty</p>;
-  } else {
-    projectsList = (
-      <ul>
-        {projectsTodos.map((todo) => (
-          <li key={uuid()}>{todo}</li>
-        ))}
-      </ul>
-    );
-=======
   function handleNewProject() {
     setProjects({ id: uuid(), name: "Project", projectTodos: [] });
   }
@@ -38,14 +25,10 @@ export default function ProjectsWindow() {
       setIsEdited(false);
       setProjectName("");
     }
->>>>>>> Stashed changes
   }
 
   return (
     <>
-<<<<<<< Updated upstream
-      <div className="p-2">{projectsList}</div>
-=======
       <div className="p-2">
         {projectsTodos.length === 0 ? (
           <p className="text-empty">Empty</p>
@@ -94,7 +77,6 @@ export default function ProjectsWindow() {
           </div>
         </div>
       ))}
->>>>>>> Stashed changes
     </>
   );
 }
