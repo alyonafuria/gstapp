@@ -13,7 +13,6 @@ export default function ModalWindow() {
     setBucketlistTodos,
     setNotesTodos,
     inboxTodos,
-    inboxIndex,
     inboxId,
     setInboxId,
     deleteInboxTodo,
