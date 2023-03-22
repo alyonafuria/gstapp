@@ -6,7 +6,22 @@ import { useModalWindowState } from "../store";
 
 export default function ModalWindow() {
   const { xPos, yPos } = useClickCoords();
+<<<<<<< Updated upstream
   const { setTodos, inboxTodos, inboxIndex } = useTodosState();
+=======
+  const {
+    setTodos,
+    setWaitlistTodos,
+    setProjectsTodos,
+    setBucketlistTodos,
+    setNotesTodos,
+    inboxTodos,
+    inboxIndex,
+    inboxId,
+    setInboxId,
+    deleteInboxTodo,
+  } = useTodosState();
+>>>>>>> Stashed changes
   const { setModalHeight } = useModalWindowState();
 
   const heightRef = useRef(null);
@@ -17,12 +32,46 @@ export default function ModalWindow() {
   }, [setModalHeight]);
 
   function handleTodoClick() {
-    const movedTodo = inboxTodos.splice(inboxIndex, 1).join(", ");
+    const movedTodo = inboxTodos.find((todo) => todo.id === inboxId);
     setTodos(movedTodo);
+    deleteInboxTodo(inboxId);
   }
 
+<<<<<<< Updated upstream
+=======
+  function handleCalendarClick() {
+    window.open("https://calendar.google.com/");
+    deleteInboxTodo(inboxId);
+  }
+
+  function handleWaitlistClick() {
+    const movedTodo = inboxTodos.find((todo) => todo.id === inboxId);
+    setWaitlistTodos(movedTodo);
+    deleteInboxTodo(inboxId);
+  }
+
+  function handleProjectsClick() {
+    const movedTodo = inboxTodos.find((todo) => todo.id === inboxId);
+    setProjectsTodos(movedTodo);
+    deleteInboxTodo(inboxId);
+    setInboxId("");
+  }
+
+  function handleBucketlistClick() {
+    const movedTodo = inboxTodos.find((todo) => todo.id === inboxId);
+    setBucketlistTodos(movedTodo);
+    deleteInboxTodo(inboxId);
+  }
+
+  function handleNotesClick() {
+    const movedTodo = inboxTodos.find((todo) => todo.id === inboxId);
+    setNotesTodos(movedTodo);
+    deleteInboxTodo(inboxId);
+  }
+
+>>>>>>> Stashed changes
   function handleDeleteClick() {
-    inboxTodos.splice(inboxIndex, 1);
+    deleteInboxTodo(inboxId);
   }
 
   return (

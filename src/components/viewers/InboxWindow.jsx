@@ -5,13 +5,13 @@ import { useClickCoords } from "../../store";
 import { useTodosState } from "../../store";
 
 export default function InboxWindow() {
-  const { inboxTodo, setInboxTodo, inboxTodos, setInboxTodos, setInboxIndex } =
+  const { inboxTodo, setInboxTodo, inboxTodos, setInboxTodos, setInboxId } =
     useTodosState();
   const { setIsModalActive, modalHeight } = useModalWindowState();
   const { setXpos, setYpos } = useClickCoords();
 
   function handlePressEnter(e) {
-    if (e.key === "Enter" && inboxTodo !== "") {
+    if (e.key === "Enter" && inboxTodo.text !== "") {
       setInboxTodos(inboxTodo);
       setInboxTodo("");
     }
@@ -19,7 +19,7 @@ export default function InboxWindow() {
 
   function handleRightClick(e) {
     e.preventDefault();
-    setInboxIndex(inboxTodos.indexOf(e.target.textContent));
+    setInboxId(e.target.id);
     setIsModalActive(true);
     if (e.pageY > window.innerHeight - modalHeight) {
       setXpos(e.pageX);
@@ -36,7 +36,7 @@ export default function InboxWindow() {
         className="input sticky top-0"
         type="text"
         name="todo"
-        value={inboxTodo}
+        value={inboxTodo.text}
         placeholder="type something"
         onChange={(e) => setInboxTodo(e.target.value)}
         onKeyDown={handlePressEnter}
@@ -46,10 +46,11 @@ export default function InboxWindow() {
         {inboxTodos.map((todo) => (
           <div
             key={uuid()}
-            className="p-2 w-full border-b-2 border-graphite dark:border-dogwood hover:bg-platinum cursor-default dark:hover:bg-jet"
+            id={todo.id}
+            className="p-2 w-full border-b-2 border-graphite dark:border-dogwood hover:bg-platinum cursor-default dark:hover:bg-jet break-words"
             onContextMenu={handleRightClick}
           >
-            <li>{todo}</li>
+            <li id={todo.id}>{todo.text}</li>
           </div>
         ))}
       </ul>

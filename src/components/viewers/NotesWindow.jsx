@@ -12,7 +12,7 @@ export default function NotesWindow() {
     notesList = (
       <ul>
         {notesTodos.map((todo) => (
-          <li key={uuid()}>{todo}</li>
+          <li key={uuid()}>{todo.text}</li>
         ))}
       </ul>
     );
