@@ -12,7 +12,7 @@ export default function TrashBin() {
     doneList = (
       <ul>
         {doneTodos.map((todo) => (
-          <li key={uuid()}>{todo}</li>
+          <li key={uuid()}>{todo.text}</li>
         ))}
       </ul>
     );

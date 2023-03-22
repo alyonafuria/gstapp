@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import uuid from "react-uuid";
 
 export const useDarkMode = create((set) => ({
   darkMode: false,
@@ -25,13 +26,15 @@ export const useTodosState = create((set) => ({
   setTodo: (value) => set({ todo: value }),
   todos: [],
   setTodos: (value) => set((state) => ({ todos: [...state.todos, value] })),
-  inboxTodo: "",
-  setInboxTodo: (value) => set({ inboxTodo: value }),
+  inboxTodo: { id: uuid(), text: "" },
+  setInboxTodo: (value) => set({ inboxTodo: { id: uuid(), text: value } }),
   inboxTodos: [],
   setInboxTodos: (value) =>
     set((state) => ({ inboxTodos: [...state.inboxTodos, value] })),
-  inboxIndex: 0,
-  setInboxIndex: (value) => set({ inboxIndex: value }),
+  deleteInboxTodo: (value) =>
+    set((state) => ({
+      inboxTodos: state.inboxTodos.filter((todo) => todo.id !== value),
+    })),
   waitlistTodos: [],
   setWaitlistTodos: (value) =>
     set((state) => ({ waitlistTodos: [...state.waitlistTodos, value] })),
@@ -47,6 +50,12 @@ export const useTodosState = create((set) => ({
   doneTodos: [],
   setDoneTodos: (value) =>
     set((state) => ({ doneTodos: [...state.doneTodos, value] })),
+  deleteTodo: (value) =>
+    set((state) => ({
+      todos: state.todos.filter((todo) => todo.id !== value),
+    })),
+  inboxId: "",
+  setInboxId: (value) => set({ inboxId: value }),
 }));
 
 export const useProjectsState = create((set) => ({

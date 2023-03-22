@@ -18,21 +18,6 @@ export default function ProjectsWindow(props) {
     }
   }, [isEdited]);
 
-  let projectsList;
-  if (projectsTodos.length === 0) {
-    projectsList = <p className="text-empty">Empty</p>;
-  } else {
-    projectsList = (
-      <ul>
-        {projectsTodos.map((todo) => (
-          <li key={uuid()} className="selection-none hover:cursor-default">
-            {todo}
-          </li>
-        ))}
-      </ul>
-    );
-  }
-
   function handleNewProject() {
     setProjects({ id: uuid(), name: "Project", projectTodos: [] });
   }
@@ -54,10 +39,24 @@ export default function ProjectsWindow(props) {
       setProjectName("");
     }
   }
-
   return (
     <>
-      <div className="p-2">{projectsList}</div>
+      <div className="p-2">
+        {projectsTodos.length === 0 ? (
+          <p className="text-empty">Empty</p>
+        ) : (
+          <ul>
+            {projectsTodos.map((todo) => (
+              <li
+                key={todo.id}
+                className="selection-none hover:cursor-default container"
+              >
+                {todo.text}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
       <button onClick={handleNewProject} className="newProjectButton">
         New Project
       </button>
@@ -81,7 +80,11 @@ export default function ProjectsWindow(props) {
             <button onClick={() => handleDeleteProject(project.id)}>X</button>
           </div>
           <div>
-            <ul>{}</ul>
+            <ul className="project-todos">
+              {project.projectTodos.map((todo) => (
+                <li key={todo.id}>{todo.title}</li>
+              ))}
+            </ul>
           </div>
         </div>
       ))}

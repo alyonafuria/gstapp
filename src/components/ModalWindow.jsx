@@ -14,6 +14,9 @@ export default function ModalWindow() {
     setNotesTodos,
     inboxTodos,
     inboxIndex,
+    inboxId,
+    setInboxId,
+    deleteInboxTodo,
   } = useTodosState();
   const { setModalHeight } = useModalWindowState();
 
@@ -25,8 +28,39 @@ export default function ModalWindow() {
   }, [setModalHeight]);
 
   function handleTodoClick() {
-    const movedTodo = inboxTodos.splice(inboxIndex, 1).join(", ");
+    const movedTodo = inboxTodos.find((todo) => todo.id === inboxId);
     setTodos(movedTodo);
+    deleteInboxTodo(inboxId);
+  }
+
+  function handleCalendarClick() {
+    window.open("https://calendar.google.com/");
+    deleteInboxTodo(inboxId);
+  }
+
+  function handleWaitlistClick() {
+    const movedTodo = inboxTodos.find((todo) => todo.id === inboxId);
+    setWaitlistTodos(movedTodo);
+    deleteInboxTodo(inboxId);
+  }
+
+  function handleProjectsClick() {
+    const movedTodo = inboxTodos.find((todo) => todo.id === inboxId);
+    setProjectsTodos(movedTodo);
+    deleteInboxTodo(inboxId);
+    setInboxId("");
+  }
+
+  function handleBucketlistClick() {
+    const movedTodo = inboxTodos.find((todo) => todo.id === inboxId);
+    setBucketlistTodos(movedTodo);
+    deleteInboxTodo(inboxId);
+  }
+
+  function handleNotesClick() {
+    const movedTodo = inboxTodos.find((todo) => todo.id === inboxId);
+    setNotesTodos(movedTodo);
+    deleteInboxTodo(inboxId);
   }
 
   function handleCalendarClick() {
@@ -54,7 +88,7 @@ export default function ModalWindow() {
   }
 
   function handleDeleteClick() {
-    inboxTodos.splice(inboxIndex, 1);
+    deleteInboxTodo(inboxId);
   }
 
   return (
