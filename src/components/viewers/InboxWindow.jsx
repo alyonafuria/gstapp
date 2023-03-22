@@ -45,6 +45,7 @@ export default function InboxWindow() {
       <ul>
         {inboxTodos.map((todo) => (
           <div
+            onContextMenu={handleRightClick}
             key={uuid()}
             id={todo.id}
             className="p-2 w-full border-b-2 border-graphite dark:border-dogwood hover:bg-platinum cursor-default dark:hover:bg-jet break-words"
