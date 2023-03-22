@@ -23,7 +23,7 @@ export const useTabsState = create((set) => ({
 
 export const useTodosState = create((set) => ({
   todo: "",
-  setTodo: (value) => set({ inboxTodo: value }),
+  setTodo: (value) => set({ todo: value }),
   todos: [],
   setTodos: (value) => set((state) => ({ todos: [...state.todos, value] })),
   inboxTodo: { id: uuid(), text: "" },
@@ -56,6 +56,14 @@ export const useTodosState = create((set) => ({
     })),
   inboxId: "",
   setInboxId: (value) => set({ inboxId: value }),
+}));
+
+export const useProjectsState = create((set) => ({
+  projects: [],
+  setProjects: (value) =>
+    set((state) => ({ projects: [...state.projects, value] })),
+  filterProjects: (value) => set(() => ({ projects: value })),
+  updateProjects: () => set((state) => ({ projects: [...state.projects] })),
 }));
 
 export const useModalWindowState = create((set) => ({

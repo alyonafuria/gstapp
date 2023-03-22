@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useTodosState } from "../../store";
+import { useProjectsState } from "../../store";
 import uuid from "react-uuid";
 
 export default function ProjectsWindow() {
   const { projectsTodos } = useTodosState();
+  const { projects, setProjects, filterProjects, updateProjects } =
+    useProjectsState();
+  const [isEdited, setIsEdited] = useState(false);
+  const [projectID, setProjectID] = useState();
+  const [projectName, setProjectName] = useState("");
+  const inputRef = useRef();
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isEdited]);
 
   function handleNewProject() {
     setProjects({ id: uuid(), name: "Project", projectTodos: [] });
