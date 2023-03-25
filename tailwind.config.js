@@ -16,6 +16,9 @@ module.exports = {
         dogwood: "#AC8A86",
         cinerous: "#6D4E4A",
       },
+      fontFamily: {
+        sans: ["PT-Mono", "sans"],
+      },
     },
   },
   plugins: [],
