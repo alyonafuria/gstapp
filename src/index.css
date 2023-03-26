@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "PT-Mono";
+  src: url("../public/PT-Mono_Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @layer base {
   .bg-color {
     @apply bg-alabaster dark:bg-eerieblack;
