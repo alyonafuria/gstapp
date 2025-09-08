@@ -10,6 +10,7 @@ export default function WaitlistTab() {
     setBucketlistActive,
     setNotesActive,
     setDoneActive,
+    setSettingsActive,
   } = useTabsState();
 
   function handleWaitlistClick() {
@@ -20,6 +21,7 @@ export default function WaitlistTab() {
       setBucketlistActive(false);
       setNotesActive(false);
       setDoneActive(false);
+      setSettingsActive(false);
     }
   }
   return (

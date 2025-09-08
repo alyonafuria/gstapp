@@ -10,6 +10,7 @@ export default function ProjectsTab() {
     setBucketlistActive,
     setNotesActive,
     setDoneActive,
+    setSettingsActive,
   } = useTabsState();
 
   function handleProjectsClick() {
@@ -20,6 +21,7 @@ export default function ProjectsTab() {
       setBucketlistActive(false);
       setNotesActive(false);
       setDoneActive(false);
+      setSettingsActive(false);
     }
   }
 

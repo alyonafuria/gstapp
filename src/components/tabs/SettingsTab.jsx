@@ -1,36 +1,36 @@
-import React from "react";
 import { useTabsState } from "../../store";
 
-export default function BucketlistTab() {
+export default function SettingsTab() {
   const {
     setInboxActive,
     setWaitlistActive,
     setProjectsActive,
-    isBucketlistActive,
     setBucketlistActive,
     setNotesActive,
+    isDoneActive,
     setDoneActive,
+    isSettingsActive,
     setSettingsActive,
   } = useTabsState();
 
-  function handleBucketlistClick() {
-    if (!isBucketlistActive) {
-      setBucketlistActive(true);
+  function handleSettingsClick() {
+    if (!isSettingsActive) {
+      setSettingsActive(true);
       setInboxActive(false);
       setWaitlistActive(false);
       setProjectsActive(false);
+      setBucketlistActive(false);
       setNotesActive(false);
       setDoneActive(false);
-      setSettingsActive(false);
     }
   }
   return (
     <>
       <div
-        className={`${isBucketlistActive ? "tab-active" : "tab-inactive"}`}
-        onClick={handleBucketlistClick}
+        className={`${isSettingsActive ? "tab-active" : "tab-inactive"}`}
+        onClick={handleSettingsClick}
       >
-        <h2>Bucket List</h2>
+        <h2>Settings</h2>
       </div>
     </>
   );

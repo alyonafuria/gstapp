@@ -5,6 +5,7 @@ import WaitlistTab from "./tabs/WaitlistTab";
 import ProjectsTab from "./tabs/ProjectsTab";
 import BucketlistTab from "./tabs/BucketlistTab";
 import NotesTab from "./tabs/NotesTab";
+import SettingsTab from "./tabs/SettingsTab";
 
 export default function MainList() {
   return (
@@ -16,6 +17,7 @@ export default function MainList() {
         <BucketlistTab />
         <NotesTab />
         <DoneTab />
+        <SettingsTab />
       </ul>
     </>
   );

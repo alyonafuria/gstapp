@@ -10,6 +10,7 @@ export default function InboxTab() {
     setBucketlistActive,
     setNotesActive,
     setDoneActive,
+    setSettingsActive,
   } = useTabsState();
 
   function handleInboxClick() {
@@ -20,6 +21,7 @@ export default function InboxTab() {
       setBucketlistActive(false);
       setNotesActive(false);
       setDoneActive(false);
+      setSettingsActive(false);
     }
   }
 

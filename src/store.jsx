@@ -6,6 +6,11 @@ export const useDarkMode = create((set) => ({
   setDarkMode: (value) => set({ darkMode: value }),
 }));
 
+export const useLogin = create((set) => ({
+  isLogged: false,
+  setLogged: (value) => set({isLogged: value}),
+}));
+
 export const useTabsState = create((set) => ({
   isInboxActive: true,
   isWaitlistActive: false,
@@ -13,12 +18,14 @@ export const useTabsState = create((set) => ({
   isBucketlistActive: false,
   isNotesActive: false,
   isDoneActive: false,
+  isSettingsActive: false,
   setInboxActive: (value) => set({ isInboxActive: value }),
   setWaitlistActive: (value) => set({ isWaitlistActive: value }),
   setProjectsActive: (value) => set({ isProjectsActive: value }),
   setBucketlistActive: (value) => set({ isBucketlistActive: value }),
   setNotesActive: (value) => set({ isNotesActive: value }),
   setDoneActive: (value) => set({ isDoneActive: value }),
+  setSettingsActive: (value) => set({ isSettingsActive: value }),
 }));
 
 export const useTodosState = create((set) => ({

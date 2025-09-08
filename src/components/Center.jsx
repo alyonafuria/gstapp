@@ -6,6 +6,7 @@ import ProjectsWindow from "./viewers/ProjectsWindow";
 import BucketlistWindow from "./viewers/BucketlistWindow";
 import NotesWindow from "./viewers/NotesWindow";
 import DoneWindow from "./viewers/DoneWindow";
+import SettingsWindow from "./viewers/SettingsWindow";
 
 export default function Center() {
   const {
@@ -15,6 +16,7 @@ export default function Center() {
     isBucketlistActive,
     isNotesActive,
     isDoneActive,
+    isSettingsActive,
   } = useTabsState();
 
   return (
@@ -26,6 +28,7 @@ export default function Center() {
         {isBucketlistActive && <BucketlistWindow />}
         {isNotesActive && <NotesWindow />}
         {isDoneActive && <DoneWindow />}
+        {isSettingsActive && <SettingsWindow />}
       </div>
     </>
   );

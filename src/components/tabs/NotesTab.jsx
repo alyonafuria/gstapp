@@ -10,6 +10,7 @@ export default function NotesTab() {
     isNotesActive,
     setNotesActive,
     setDoneActive,
+    setSettingsActive,
   } = useTabsState();
 
   function handleNotesClick() {
@@ -20,6 +21,7 @@ export default function NotesTab() {
       setProjectsActive(false);
       setBucketlistActive(false);
       setDoneActive(false);
+      setSettingsActive(false);
     }
   }
 
