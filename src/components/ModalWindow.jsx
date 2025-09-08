@@ -67,22 +67,22 @@ export default function ModalWindow() {
   }
 
   function handleWaitlistClick() {
-    const movedTodo = inboxTodos.splice(inboxIndex, 1).join(", ");
+    const movedTodo = inboxTodos.splice(inboxId, 1).join(", ");
     setWaitlistTodos(movedTodo);
   }
 
   function handleProjectsClick() {
-    const movedTodo = inboxTodos.splice(inboxIndex, 1).join(", ");
+    const movedTodo = inboxTodos.splice(inboxId, 1).join(", ");
     setProjectsTodos(movedTodo);
   }
 
   function handleBucketlistClick() {
-    const movedTodo = inboxTodos.splice(inboxIndex, 1).join(", ");
+    const movedTodo = inboxTodos.splice(inboxId, 1).join(", ");
     setBucketlistTodos(movedTodo);
   }
 
   function handleNotesClick() {
-    const movedTodo = inboxTodos.splice(inboxIndex, 1).join(", ");
+    const movedTodo = inboxTodos.splice(inboxId, 1).join(", ");
     setNotesTodos(movedTodo);
   }
 
